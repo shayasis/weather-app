@@ -1,0 +1,46 @@
+
+<div class="home-container">
+    <form class="weather-form" [formGroup]="weatherSearchForm"
+    (ngSubmit)="sendToAPI(weatherSearchForm.value)">
+    
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Enter City</mat-label>
+        <input type="text"
+               placeholder="Pick one"
+               aria-label="city"
+               matInput
+               formControlName="location"
+               [matAutocomplete]="auto">
+        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+          <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+            {{option}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+
+
+    <div class="weather-result-container">
+        <div class="row">
+            <div class="city">
+                <img src="">
+                <div class="city-weather-info">
+                  <div>{{cityDataList?.LocalizedName}}London</div>
+                  <div>{{cityDataList?.Temperature?.Metric.value}}23</div>
+                </div>
+            </div>
+            <div class="favorites">
+                <img src="/assets/images/favorites.png">
+                <button type="button">Favorites</button>
+            </div>
+        </div>
+        <div class="weather-condition-title">
+          <div>{{cityDataList?.Country?.LocalizedName}}Cloduy</div>
+        </div>
+        <div class="five-dayes-forecasts">
+            <div class="day" *ngFor="let day of fiveDays">
+                {{day}}
+            </div>
+        </div>
+    </div>
+    </form>
+</div>

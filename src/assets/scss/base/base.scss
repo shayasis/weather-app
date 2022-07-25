@@ -1,0 +1,101 @@
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit;
+}
+
+html {
+  // This defines what 1rem is
+  font-size: 62.5%; //1 rem = 10px; 10px/16px = 62.5%
+}
+
+
+body {
+  font-family: $regular;
+  box-sizing: border-box;
+  font-size: $default-font-size;
+  color: $color-primary;
+  background: #ebebeb;
+}
+
+img {
+  align-self: center;
+}
+
+p {
+  margin: 0;
+  display: inline-block;
+  font-family: $regular;
+  direction: rtl;
+}
+
+
+a {
+  text-decoration: none;
+  font-family: $regular;
+  cursor: pointer;
+}
+
+h1 {
+  border: none;
+  outline: transparent;
+}
+
+.button-basic {
+  width: 252px;
+  height: 48px;
+  border: none;
+  outline: transparent;
+  background: $button-link;
+  @include flexRow;
+  justify-content: center;
+  color: $color-white;
+  font-size: $default-font-size;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: $regular;
+  @include respond(tablet-land) {
+    font-size: 2rem;
+  }
+  @include respond(laptop-small) {
+    font-size: 2.3rem;
+  }
+  &:disabled {
+    background: $color-gray-light;
+    color: $color-gray-dark;
+    cursor: default;
+    &:hover {
+      background: $color-gray-light;
+      color: $color-gray-dark;
+    }
+  }
+}
+
+::placeholder {
+  color: $color-primary;
+  font-size: $medium-text;
+}
+
+::-webkit-scrollbar {
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 0.3rem;
+}
+
+::-webkit-scrollbar-track {
+  background: #e7e6ea;
+  border-radius: 1rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #bfbfbf;
+  border-radius: 1rem;
+}
+.results-conatiner {
+  .discunts-notification-container {
+    top: 88px;
+    z-index: 4;
+  }
+}

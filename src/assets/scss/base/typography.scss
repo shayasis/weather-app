@@ -1,0 +1,34 @@
+h1 {
+    font-size: 2.6rem;
+    color: $color-primary;
+    font-family: $bold;
+    letter-spacing: normal;
+    @include respond(tablet-land) {
+      font-size: 3rem;
+    }
+    @include respond(laptop-small) {
+      font-size: 3.8rem;
+    }
+  }
+
+  @font-face {
+    font-family: $regular;
+    src: url("/assets/fonts/Assistant-Regular.woff2") format("woff2"),
+      url("/assets/fonts/Assistant-Regular.ttf") format("truetype");
+  }
+  
+  @font-face {
+    font-family: $bold;
+    src: url("/assets/fonts/Assistant-Bold.woff2") format("woff2"),
+      url("/assets/fonts/Assistant-Bold.ttf") format("truetype");
+  }
+  
+  @font-face {
+    font-family: $semiBold;
+    src: url("/assets/fonts/Assistant-SemiBold.woff2") format("woff2"),
+      url("/assets/fonts/Assistant-SemiBold.ttf") format("truetype");
+  }
+  
+  .bold {
+    font-family: $bold;
+  }
