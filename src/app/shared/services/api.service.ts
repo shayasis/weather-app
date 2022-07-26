@@ -6,26 +6,32 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class ApiService {
+  numberOfCitys: number = 150;
+  constructor(private http: HttpClient) { }
 
-  constructor(private http: HttpClient) {}
-
-  getAutocomplete(location:any){
+  getCity() {
     return this.http.get(
-      environment.AUTOCOMPLETE_URL+'?apikey='+environment.ACCESS_KEY+'&q='+location
+      environment.CITY_URL + this.numberOfCitys + '?apikey=' + environment.ACCESS_KEY
     );
   }
 
-  getCurrentConditions(locationKey:string){
+  getAutocomplete(location: any) {
     return this.http.get(
-      environment.CURRENT_CONDITIONS_URL+locationKey+'?apikey='+environment.ACCESS_KEY
+      environment.AUTOCOMPLETE_URL + '?apikey=' + environment.ACCESS_KEY + '&q=' + location
     );
   }
 
-  getFiveDaysforecasts(locationKey:string){
+  getCurrentConditions(locationKey: string) {
     return this.http.get(
-      environment.FIVE_DAYS_URL+locationKey+'?apikey='+environment.ACCESS_KEY
+      environment.CURRENT_CONDITIONS_URL + locationKey + '?apikey=' + environment.ACCESS_KEY
     );
   }
-  
-  
+
+  getFiveDaysforecasts(locationKey: string) {
+    return this.http.get(
+      environment.FIVE_DAYS_URL + locationKey + '?apikey=' + environment.ACCESS_KEY
+    );
+  }
+
+
 }

@@ -10,60 +10,71 @@ import { ApiService } from 'src/app/shared/services/api.service';
 })
 export class HomeComponent implements OnInit {
   public weatherSearchForm!: FormGroup;
-  options: string[] = ['London', 'Two', 'Three'];
-  fiveDays: string[] = ['111','222','333','444','555']
-  filteredOptions!: Observable<string[]>;
+  cityList: string[] = [];
+  fiveDays: string[] = ['111', '222', '333', '444', '555'];
+  filteredOptions: string[] = [];
 
   public cityDataList: any;
-  public conditionDataList: any;
-  public fiveDaysDataList: any;
-
-  public locationkey: string = '55489'
+  public locationKey: string = '';
 
   constructor(private formBuilder: FormBuilder,
     public apiService: ApiService) { }
 
   ngOnInit(): void {
+    this.setCityList();
     this.setForm();
 
-    this.filteredOptions = this.weatherSearchForm.valueChanges.pipe(
-      startWith(''),
-      map(value => this._filter(value || '')),
-    );
+
+    this.weatherSearchForm.valueChanges.subscribe(res => {
+      this._filter(res)
+    })
   }
 
-  setForm(){
+  setForm() {
     this.weatherSearchForm = this.formBuilder.group({
       location: ['']
     });
   }
-  private _filter(value: string): string[] {
-    const filterValue = value.toString();
 
-    return this.options.filter(option => option.toLowerCase().includes(filterValue));
+  setCityList() {
+    this.apiService.getCity()
+      .subscribe((data: any) => {
+        console.log({ data });
+        this.cityList = data.map((item: any) => {
+          return item.LocalizedName;
+        });
+        this.filteredOptions = this.cityList;
+      });
+  }
+
+  private _filter(value: { location: string }) {
+    if (value.location.length) {
+      this.filteredOptions = this.cityList.filter(cityList => cityList.toLowerCase().includes(value.location));
+      return;
+    }
+    this.filteredOptions = this.cityList
   }
 
   sendToAPI(formValues: any) {
     this.apiService.getAutocomplete(formValues.location)
       .subscribe((data: any) => {
-        this.cityDataList = data;
-        this.cityDataList.map((item:any) => {
-          console.log("item.key",item.key);
+        data.map((item: any) => {
+          console.log("item.key", item.Key);
+          this.locationKey = item.Key;
+          return item;
         });
-    
-        console.log("cityDataList", this.cityDataList);
+
+        console.log("getAutocomplete", data);
       });
 
-    this.apiService.getCurrentConditions(this.locationkey)
+    this.apiService.getCurrentConditions(this.locationKey)
       .subscribe((data: any) => {
-        this.conditionDataList = data;
-        console.log("getCondition", this.conditionDataList);
+        console.log("conditionDataList", data);
       });
 
-    this.apiService.getFiveDaysforecasts(this.locationkey)
+    this.apiService.getFiveDaysforecasts(this.locationKey)
       .subscribe((data: any) => {
-        this.fiveDaysDataList = data;
-        console.log("getFiveDays", this.fiveDaysDataList);
+        console.log("getFiveDays", data);
       });
   }
 }
