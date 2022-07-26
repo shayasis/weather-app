@@ -9,24 +9,14 @@
   flex-direction: column;
 }
 
-@mixin positionCenter {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
 @mixin respond($breakpoint) {    
-    @if $breakpoint == tablet {
-        @media only screen and (min-width:769px) { @content };
-    }
-    @if $breakpoint == tablet-land {
-        @media only screen and (min-width:1024px) { @content };
+    @if $breakpoint == mobile {
+        @media only screen and (max-width:769px) { @content };
     }
     @if $breakpoint == laptop-small {
-          @media only screen and (min-width:1279px) { @content };
-       }
+          @media only screen and (max-width:1024px) { @content };
+     }
     @if $breakpoint == laptop {
-        @media only screen and (min-width: 1800px) { @content };
-    }
+      @media only screen and (max-width:1279px) { @content };
+    } 
 }

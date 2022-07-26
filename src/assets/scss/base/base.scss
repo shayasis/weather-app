@@ -18,6 +18,7 @@ body {
   font-size: $default-font-size;
   color: $color-primary;
   background: #ebebeb;
+  height: 100%;
 }
 
 img {
@@ -38,39 +39,18 @@ a {
   cursor: pointer;
 }
 
-h1 {
-  border: none;
-  outline: transparent;
-}
 
 .button-basic {
-  width: 252px;
-  height: 48px;
+  width: fit-content;
   border: none;
   outline: transparent;
-  background: $button-link;
-  @include flexRow;
-  justify-content: center;
-  color: $color-white;
+  background: $color-secondary;
+  color:$color-white;
   font-size: $default-font-size;
-  border-radius: 4px;
-  cursor: pointer;
+  border-radius: 10px;
   font-family: $regular;
-  @include respond(tablet-land) {
-    font-size: 2rem;
-  }
-  @include respond(laptop-small) {
-    font-size: 2.3rem;
-  }
-  &:disabled {
-    background: $color-gray-light;
-    color: $color-gray-dark;
-    cursor: default;
-    &:hover {
-      background: $color-gray-light;
-      color: $color-gray-dark;
-    }
-  }
+  padding: 0 10px;
+  cursor: pointer;
 }
 
 ::placeholder {
@@ -78,6 +58,7 @@ h1 {
   font-size: $medium-text;
 }
 
+//scroll styles
 ::-webkit-scrollbar {
   width: 0.6rem;
   height: 0.6rem;
@@ -92,10 +73,4 @@ h1 {
 ::-webkit-scrollbar-thumb {
   background: #bfbfbf;
   border-radius: 1rem;
-}
-.results-conatiner {
-  .discunts-notification-container {
-    top: 88px;
-    z-index: 4;
-  }
 }

@@ -5,6 +5,9 @@
     height: 100%;
     padding-top: 100px;
     display: flex;
+    @include respond(mobile){
+        padding-top: 30px;
+     }
     justify-content: center;
     .my-favorites{
         width: 80%;
@@ -14,11 +17,21 @@
         justify-content: center;
         flex-wrap: wrap;
         gap:50px;   
+        @include respond(mobile){
+            height: auto;
+            @include flexColumn;
+            flex-wrap: nowrap;
+            gap:20px;
+         }
 
         .favorite{
             width: 100px;
             height: 100%;
             border:1px solid #000;
+            @include respond(mobile){
+                width: 100%;
+                height: 100px;
+             }
         } 
     }
 }
