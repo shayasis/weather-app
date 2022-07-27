@@ -30,8 +30,8 @@
         <div>{{weatherInfo.weatherText}}</div>
       </div>
       <div class="five-dayes-forecasts">
-        <div class="day" *ngFor="let day of fiveDays">
-          {{day}}
+        <div class="day" *ngFor="let day of dailyForecastsList">
+         <div> {{day.Date | date}}</div>
         </div>
       </div>
     </div>

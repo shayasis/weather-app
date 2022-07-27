@@ -1,5 +1,5 @@
 export interface WeatherInfo {
-     cityName:string;
-     temperature:number;
-     weatherText:string;
-  }
+    cityName: string;
+    temperature: number;
+    weatherText: string;
+}

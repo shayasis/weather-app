@@ -1,0 +1,26 @@
+
+    [
+        {
+          "LocalObservationDateTime": "2022-07-27T11:43:00+06:00",
+          "EpochTime": 1658900580,
+          "WeatherText": "Mostly cloudy",
+          "WeatherIcon": 6,
+          "HasPrecipitation": false,
+          "PrecipitationType": null,
+          "IsDayTime": true,
+          "Temperature": {
+            "Metric": {
+              "Value": 32,
+              "Unit": "C",
+              "UnitType": 17
+            },
+            "Imperial": {
+              "Value": 90,
+              "Unit": "F",
+              "UnitType": 18
+            }
+          },
+          "MobileLink": "http://www.accuweather.com/en/bd/dhaka/28143/current-weather/28143?lang=en-us",
+          "Link": "http://www.accuweather.com/en/bd/dhaka/28143/current-weather/28143?lang=en-us"
+        }
+      ]
