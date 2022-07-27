@@ -74,3 +74,29 @@ a {
   background: #bfbfbf;
   border-radius: 1rem;
 }
+
+.darkTheme{
+  :host{
+    header{
+      background: $color-white;
+      color:$color-black;
+      .navigation{
+        a{
+          color:$color-black;
+        }
+      }
+    }
+    .home-container{
+      .weather-form{
+        .weather-result-container{
+          background: $color-black;
+          color:$color-white;
+        }
+      }
+
+      
+    }
+   
+  }
+
+}

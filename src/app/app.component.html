@@ -1,4 +1,4 @@
-<div class="weather-container">
-    <app-header></app-header>
+<div class="weather-container" [ngClass]="[setMode ? 'darkTheme' : '']">
+    <app-header (mode)="receiveMode($event)"></app-header>
      <router-outlet></router-outlet>
   </div>

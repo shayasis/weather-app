@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'weather-app';
+
+  setMode = false;
+
+  receiveMode($event: any) {
+    this.setMode = $event;
+    console.log("MODEEEE", this.setMode);
+  }
 }

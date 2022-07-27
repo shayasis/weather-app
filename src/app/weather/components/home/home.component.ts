@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { map, Observable, startWith } from 'rxjs';
+import { WeatherInfo } from 'src/app/shared/Interfaces/weather-info.Interface';
 import { ApiService } from 'src/app/shared/services/api.service';
 
 @Component({
@@ -9,6 +10,9 @@ import { ApiService } from 'src/app/shared/services/api.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  @Output() mode = new EventEmitter<boolean>();
+  setDark = false;
+
   public weatherSearchForm!: FormGroup;
   cityList: string[] = [];
   fiveDays: string[] = ['111', '222', '333', '444', '555'];
@@ -16,6 +20,9 @@ export class HomeComponent implements OnInit {
 
   public cityDataList: any;
   public locationKey: string = '';
+  public weatherInfo:WeatherInfo = <WeatherInfo>{};
+
+
 
   constructor(private formBuilder: FormBuilder,
     public apiService: ApiService) { }
@@ -58,21 +65,31 @@ export class HomeComponent implements OnInit {
   sendToAPI(formValues: any) {
     this.apiService.getAutocomplete(formValues.location)
       .subscribe((data: any) => {
+        console.log('GetAutocomplet res - ', data);
         data.map((item: any) => {
           console.log("item.key", item.Key);
-          this.locationKey = item.Key;
+          this.weatherInfo.cityName = item.LocalizedName;
+          this.currentConditions(item.Key);
+          this.fiveDaysforecasts(item.Key);
           return item;
         });
-
-        console.log("getAutocomplete", data);
       });
+  }
 
-    this.apiService.getCurrentConditions(this.locationKey)
-      .subscribe((data: any) => {
-        console.log("conditionDataList", data);
+  currentConditions(locationKey: string){
+    this.apiService.getCurrentConditions(locationKey)
+    .subscribe((data: any) => {
+      data.map((item: any) => {
+        this.weatherInfo.temperature = item.Temperature.Metric.Value;
+        this.weatherInfo.weatherText = item.WeatherText;
+        return item;
       });
+      console.log("conditionDataList", data);
+    });
+  }
 
-    this.apiService.getFiveDaysforecasts(this.locationKey)
+  fiveDaysforecasts(locationKey: string){
+    this.apiService.getFiveDaysforecasts(locationKey)
       .subscribe((data: any) => {
         console.log("getFiveDays", data);
       });
