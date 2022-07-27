@@ -18,8 +18,8 @@
         <div class="city">
           <img src="">
           <div class="city-weather-info">
-            <div>{{cityDataList?.LocalizedName}}London</div>
-            <div>{{cityDataList?.Temperature?.Metric.value}}23</div>
+            <div>{{weatherInfo.cityName}}</div>
+            <div>{{weatherInfo.temperature}}</div>
           </div>
         </div>
         <div class="favorites">
@@ -28,11 +28,11 @@
         </div>
       </div>
       <div class="weather-condition-title">
-        <div>{{cityDataList?.Country?.LocalizedName}}Cloduy</div>
+        <div>{{weatherInfo.weatherText}}</div>
       </div>
       <div class="five-dayes-forecasts">
-        <div class="day" *ngFor="let day of fiveDays">
-          {{day}}
+        <div class="day" *ngFor="let day of dailyForecastsList">
+         <div> {{day.Date | date}}</div>
         </div>
       </div>
     </div>

@@ -1,0 +1,189 @@
+
+    {
+        "Headline": {
+          "EffectiveDate": "2022-07-31T07:00:00+06:00",
+          "EffectiveEpochDate": 1659229200,
+          "Severity": 2,
+          "Text": "Thunderstorms in the area Sunday morning through Wednesday afternoon",
+          "Category": "thunderstorm",
+          "EndDate": "2022-08-03T19:00:00+06:00",
+          "EndEpochDate": 1659531600,
+          "MobileLink": "http://www.accuweather.com/en/bd/dhaka/28143/daily-weather-forecast/28143?lang=en-us",
+          "Link": "http://www.accuweather.com/en/bd/dhaka/28143/daily-weather-forecast/28143?lang=en-us"
+        },
+        "DailyForecasts": [
+          {
+            "Date": "2022-07-27T07:00:00+06:00",
+            "EpochDate": 1658883600,
+            "Temperature": {
+              "Minimum": {
+                "Value": 83,
+                "Unit": "F",
+                "UnitType": 18
+              },
+              "Maximum": {
+                "Value": 93,
+                "Unit": "F",
+                "UnitType": 18
+              }
+            },
+            "Day": {
+              "Icon": 15,
+              "IconPhrase": "Thunderstorms",
+              "HasPrecipitation": true,
+              "PrecipitationType": "Rain",
+              "PrecipitationIntensity": "Light"
+            },
+            "Night": {
+              "Icon": 38,
+              "IconPhrase": "Mostly cloudy",
+              "HasPrecipitation": false
+            },
+            "Sources": [
+              "AccuWeather"
+            ],
+            "MobileLink": "http://www.accuweather.com/en/bd/dhaka/28143/daily-weather-forecast/28143?day=1&lang=en-us",
+            "Link": "http://www.accuweather.com/en/bd/dhaka/28143/daily-weather-forecast/28143?day=1&lang=en-us"
+          },
+          {
+            "Date": "2022-07-28T07:00:00+06:00",
+            "EpochDate": 1658970000,
+            "Temperature": {
+              "Minimum": {
+                "Value": 83,
+                "Unit": "F",
+                "UnitType": 18
+              },
+              "Maximum": {
+                "Value": 94,
+                "Unit": "F",
+                "UnitType": 18
+              }
+            },
+            "Day": {
+              "Icon": 15,
+              "IconPhrase": "Thunderstorms",
+              "HasPrecipitation": true,
+              "PrecipitationType": "Rain",
+              "PrecipitationIntensity": "Light"
+            },
+            "Night": {
+              "Icon": 7,
+              "IconPhrase": "Cloudy",
+              "HasPrecipitation": true,
+              "PrecipitationType": "Rain",
+              "PrecipitationIntensity": "Moderate"
+            },
+            "Sources": [
+              "AccuWeather"
+            ],
+            "MobileLink": "http://www.accuweather.com/en/bd/dhaka/28143/daily-weather-forecast/28143?day=2&lang=en-us",
+            "Link": "http://www.accuweather.com/en/bd/dhaka/28143/daily-weather-forecast/28143?day=2&lang=en-us"
+          },
+          {
+            "Date": "2022-07-29T07:00:00+06:00",
+            "EpochDate": 1659056400,
+            "Temperature": {
+              "Minimum": {
+                "Value": 82,
+                "Unit": "F",
+                "UnitType": 18
+              },
+              "Maximum": {
+                "Value": 93,
+                "Unit": "F",
+                "UnitType": 18
+              }
+            },
+            "Day": {
+              "Icon": 15,
+              "IconPhrase": "Thunderstorms",
+              "HasPrecipitation": true,
+              "PrecipitationType": "Rain",
+              "PrecipitationIntensity": "Moderate"
+            },
+            "Night": {
+              "Icon": 15,
+              "IconPhrase": "Thunderstorms",
+              "HasPrecipitation": true,
+              "PrecipitationType": "Rain",
+              "PrecipitationIntensity": "Heavy"
+            },
+            "Sources": [
+              "AccuWeather"
+            ],
+            "MobileLink": "http://www.accuweather.com/en/bd/dhaka/28143/daily-weather-forecast/28143?day=3&lang=en-us",
+            "Link": "http://www.accuweather.com/en/bd/dhaka/28143/daily-weather-forecast/28143?day=3&lang=en-us"
+          },
+          {
+            "Date": "2022-07-30T07:00:00+06:00",
+            "EpochDate": 1659142800,
+            "Temperature": {
+              "Minimum": {
+                "Value": 82,
+                "Unit": "F",
+                "UnitType": 18
+              },
+              "Maximum": {
+                "Value": 91,
+                "Unit": "F",
+                "UnitType": 18
+              }
+            },
+            "Day": {
+              "Icon": 15,
+              "IconPhrase": "Thunderstorms",
+              "HasPrecipitation": true,
+              "PrecipitationType": "Rain",
+              "PrecipitationIntensity": "Moderate"
+            },
+            "Night": {
+              "Icon": 12,
+              "IconPhrase": "Showers",
+              "HasPrecipitation": true,
+              "PrecipitationType": "Rain",
+              "PrecipitationIntensity": "Heavy"
+            },
+            "Sources": [
+              "AccuWeather"
+            ],
+            "MobileLink": "http://www.accuweather.com/en/bd/dhaka/28143/daily-weather-forecast/28143?day=4&lang=en-us",
+            "Link": "http://www.accuweather.com/en/bd/dhaka/28143/daily-weather-forecast/28143?day=4&lang=en-us"
+          },
+          {
+            "Date": "2022-07-31T07:00:00+06:00",
+            "EpochDate": 1659229200,
+            "Temperature": {
+              "Minimum": {
+                "Value": 82,
+                "Unit": "F",
+                "UnitType": 18
+              },
+              "Maximum": {
+                "Value": 89,
+                "Unit": "F",
+                "UnitType": 18
+              }
+            },
+            "Day": {
+              "Icon": 15,
+              "IconPhrase": "Thunderstorms",
+              "HasPrecipitation": true,
+              "PrecipitationType": "Rain",
+              "PrecipitationIntensity": "Moderate"
+            },
+            "Night": {
+              "Icon": 7,
+              "IconPhrase": "Cloudy",
+              "HasPrecipitation": true,
+              "PrecipitationType": "Rain",
+              "PrecipitationIntensity": "Heavy"
+            },
+            "Sources": [
+              "AccuWeather"
+            ],
+            "MobileLink": "http://www.accuweather.com/en/bd/dhaka/28143/daily-weather-forecast/28143?day=5&lang=en-us",
+            "Link": "http://www.accuweather.com/en/bd/dhaka/28143/daily-weather-forecast/28143?day=5&lang=en-us"
+          }
+        ]
+      }

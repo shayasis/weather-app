@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { map, Observable, startWith } from 'rxjs';
+import { WeatherInfo } from 'src/app/shared/Interfaces/weather-info.Interface';
 import { ApiService } from 'src/app/shared/services/api.service';
+import { MockApiService } from 'src/app/shared/services/mockApi.service';
 
 @Component({
   selector: 'app-home',
@@ -11,17 +12,20 @@ import { ApiService } from 'src/app/shared/services/api.service';
 export class HomeComponent implements OnInit {
   public weatherSearchForm!: FormGroup;
   cityList: string[] = [];
-  fiveDays: string[] = ['111', '222', '333', '444', '555'];
+  dailyForecastsList: any[] = [];
   filteredOptions: string[] = [];
 
   public cityDataList: any;
   public locationKey: string = '';
 
+  weatherInfo: WeatherInfo = <WeatherInfo>{}
+
   constructor(private formBuilder: FormBuilder,
-    public apiService: ApiService) { }
+    public apiService: ApiService,
+    public mockApiService: MockApiService) { }
 
   ngOnInit(): void {
-    this.setCityList();
+    this.getCityList();
     this.setForm();
 
 
@@ -36,8 +40,8 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  setCityList() {
-    this.apiService.getCity()
+  getCityList() {
+    this.mockApiService.getCity()
       .subscribe((data: any) => {
         console.log({ data });
         this.cityList = data.map((item: any) => {
@@ -55,28 +59,76 @@ export class HomeComponent implements OnInit {
     this.filteredOptions = this.cityList
   }
 
+  // sendToAPI(formValues: any) {
+  //   this.apiService.getAutocomplete(formValues.location)
+  //     .subscribe((data: any) => {
+  //       data.map((item: any) => {
+  //         console.log("item.key", item.Key);
+  //         this.weatherInfo.cityName = item.LocalizedName;
+  //         this.fiveDaysForecasts(item.Key);
+  //         this.currentConditions(item.Key);
+  //         this.locationKey = item.Key;
+  //         return item;
+  //       });
+
+  //       console.log("getAutocomplete", data);
+  //     });
+  // }
+
+  // currentConditions(locationKey: string) {
+  //   this.apiService.getCurrentConditions(locationKey)
+  //     .subscribe((data: any) => {
+  //       console.log("conditionDataList", data);
+  //     });
+  // }
+  // fiveDaysForecasts(locationKey: string) {
+  //   this.apiService.getFiveDaysforecasts(locationKey)
+  //     .subscribe((data: any) => {
+  //       console.log("getFiveDays", data);
+  //     });
+  // }
+
+
+
   sendToAPI(formValues: any) {
-    this.apiService.getAutocomplete(formValues.location)
+    this.mockApiService.getAutocomplete()
       .subscribe((data: any) => {
         data.map((item: any) => {
-          console.log("item.key", item.Key);
+          // console.log("item.key", item.Key);
+          this.weatherInfo.cityName = item.LocalizedName;
+          this.currentConditions(item.Key);
+          this.fiveDaysForecasts(item.Key);
           this.locationKey = item.Key;
           return item;
         });
 
-        console.log("getAutocomplete", data);
+        // console.log("getAutocomplete", data);
       });
+  }
 
-    this.apiService.getCurrentConditions(this.locationKey)
+  currentConditions(locationKey: string) {
+    this.mockApiService.getCurrentConditions()
       .subscribe((data: any) => {
-        console.log("conditionDataList", data);
+        data.map((item: any) => {
+          this.weatherInfo.temperature = item.Temperature.Metric.Value;
+          this.weatherInfo.weatherText = item.WeatherText;
+          return item;
+        });
+        //  console.log("conditionDataList", data);
       });
-
-    this.apiService.getFiveDaysforecasts(this.locationKey)
+  }
+  fiveDaysForecasts(locationKey: string) {
+    this.mockApiService.getFiveDaysforecasts()
       .subscribe((data: any) => {
+        data.DailyForecasts.map((item: any) => {
+          console.log("item", item);
+          this.dailyForecastsList.push(item);
+
+        });
         console.log("getFiveDays", data);
       });
   }
+
 }
 
 
