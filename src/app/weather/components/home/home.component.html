@@ -2,7 +2,7 @@
   <form class="weather-form" [formGroup]="weatherSearchForm" (ngSubmit)="sendToAPI(weatherSearchForm.value)">
     <mat-form-field class="example-full-width" appearance="fill">
       <mat-label>Enter City</mat-label>
-      <input type="text" placeholder="Pick one" aria-label="city" matInput formControlName="location"
+      <input type="text" placeholder="" aria-label="city" matInput formControlName="location"
         [matAutocomplete]="auto">
       <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
         <mat-option *ngFor="let option of filteredOptions " [value]="option">
@@ -32,6 +32,8 @@
       <div class="five-dayes-forecasts">
         <div class="day" *ngFor="let day of dailyForecastsList">
          <div> {{day.Date | date}}</div>
+         <div>{{weatherInfo.temperature}}</div>
+         <div>{{weatherInfo.weatherText}}</div>
         </div>
       </div>
     </div>

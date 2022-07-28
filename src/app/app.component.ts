@@ -12,6 +12,5 @@ export class AppComponent {
 
   receiveMode($event: any) {
     this.setMode = $event;
-    console.log("MODEEEE", this.setMode);
   }
 }

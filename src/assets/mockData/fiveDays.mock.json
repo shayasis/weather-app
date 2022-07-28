@@ -17,7 +17,7 @@
             "EpochDate": 1658883600,
             "Temperature": {
               "Minimum": {
-                "Value": 83,
+                "Value": 87,
                 "Unit": "F",
                 "UnitType": 18
               },
@@ -120,7 +120,7 @@
             "EpochDate": 1659142800,
             "Temperature": {
               "Minimum": {
-                "Value": 82,
+                "Value": 83,
                 "Unit": "F",
                 "UnitType": 18
               },

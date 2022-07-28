@@ -124,11 +124,17 @@ export class HomeComponent implements OnInit {
     this.mockApiService.getFiveDaysforecasts()
       .subscribe((data: any) => {
         data.DailyForecasts.map((item: any) => {
-          console.log("item", item);
+        // console.log("item", item);
           this.dailyForecastsList.push(item);
-
+          this.dailyForecastsList = this.dailyForecastsList.slice(0, 5);
+          this.weatherInfo.temperature = item.Temperature.Minimum.Value;
+          this.weatherInfo.weatherText = item.Day.IconPhrase;
+          
+    
         });
         console.log("getFiveDays", data);
+        console.log(" this.dailyForecastsList", this.dailyForecastsList);
+        
       });
   }
 

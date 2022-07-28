@@ -17,7 +17,6 @@ export class HeaderComponent implements OnInit {
   onChangeToggle() {
     this.setDark = !this.setDark;
     this.mode.emit(this.setDark);
-    console.log(this.setDark);
   }
 
 }
